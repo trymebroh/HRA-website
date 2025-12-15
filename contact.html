@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | High Ridge Advisory</title>
+  <meta name="description" content="Get in touch with High Ridge Advisory. Schedule a consultation or send us a message. Located in McKinney, Texas, serving clients nationwide.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Contact Us | High Ridge Advisory">
+  <meta property="og:description" content="Get in touch with High Ridge Advisory. Schedule a consultation or send us a message.">
+  <meta property="og:image" content="https://highridgeadvisory.com/images/og-image.jpg">
+  <meta property="og:url" content="https://highridgeadvisory.com/contact.html">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://highridgeadvisory.com/contact.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#1a365d">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <header class="navbar navbar--transparent" id="navbar">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">
+        <img src="https://placehold.co/200x80/1a365d/ffffff?text=High+Ridge" alt="High Ridge Advisory Logo">
+      </a>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+
+        <div class="nav-dropdown" id="client-portal">
+          <button class="nav-dropdown-toggle" aria-expanded="false" aria-controls="portal-menu">
+            Client Portal
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" id="portal-menu">
+            <a href="https://login.orionadvisor.com/" class="nav-dropdown-item" target="_blank" rel="noopener noreferrer">View Investments</a>
+            <a href="https://wealth.emaplan.com/ema/SignIn" class="nav-dropdown-item" target="_blank" rel="noopener noreferrer">Access Wealth Plan</a>
+          </div>
+        </div>
+
+        <a href="https://highridgeadvisory.as.me/" class="btn btn-primary nav-cta" target="_blank" rel="noopener noreferrer">Book a Meeting</a>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero hero--compact" style="background-image: url('https://placehold.co/1920x800/2d3748/94a3b8?text=Contact+Hero');">
+      <div class="hero-content">
+        <h1>Let's Work Together</h1>
+        <p class="hero-subtitle">We'd love to hear from you. Reach out to schedule a conversation about your financial goals.</p>
+      </div>
+    </section>
+
+    <!-- Contact Content Section -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Contact Form -->
+          <div data-animate="fade-in-up">
+            <h2 class="mb-6">Send Us a Message</h2>
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+              <input type="hidden" name="form-name" value="contact">
+
+              <!-- Honeypot field for spam protection -->
+              <p class="form-honeypot" aria-hidden="true">
+                <label>Don't fill this out if you're human: <input name="bot-field"></label>
+              </p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first-name" class="form-label">First Name <span class="required">*</span></label>
+                  <input type="text" id="first-name" name="first-name" class="form-input" required autocomplete="given-name">
+                </div>
+                <div class="form-group">
+                  <label for="last-name" class="form-label">Last Name <span class="required">*</span></label>
+                  <input type="text" id="last-name" name="last-name" class="form-input" required autocomplete="family-name">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" class="form-input" required autocomplete="email">
+              </div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="tel" id="phone" name="phone" class="form-input" autocomplete="tel">
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">How can we help you? <span class="required">*</span></label>
+                <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+              </div>
+
+              <div class="form-group checkbox-group">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter" class="form-label">Keep me updated with news and insights</label>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+
+          <!-- Contact Information -->
+          <div class="contact-info" data-animate="fade-in">
+            <h3>Contact Information</h3>
+
+            <div class="contact-info-item">
+              <h5>Email</h5>
+              <a href="mailto:info@highridgeadvisory.com">info@highridgeadvisory.com</a>
+            </div>
+
+            <div class="contact-info-item">
+              <h5>Phone</h5>
+              <a href="tel:+19726325700">972.632.5700</a>
+              <p class="text-small" style="color: var(--gray-500); margin-top: var(--space-1);">Call or text—we're here to help.</p>
+            </div>
+
+            <div class="contact-info-item">
+              <h5>Office</h5>
+              <p>
+                208 E. Louisiana Street<br>
+                Suite 301<br>
+                McKinney, Texas 75069
+              </p>
+            </div>
+
+            <div class="contact-divider"></div>
+
+            <div class="contact-info-item">
+              <h5>Prefer to schedule directly?</h5>
+              <p>Book a time that works for you using our online scheduler.</p>
+              <a href="https://highridgeadvisory.as.me/" class="link-arrow mt-4" target="_blank" rel="noopener noreferrer">
+                Book a Meeting
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section (Optional) -->
+    <section class="section section--gray">
+      <div class="container">
+        <div class="text-center" data-animate="fade-in-up">
+          <h3 class="mb-6">Visit Our Office</h3>
+          <div style="border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-lg);">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3343.5484896344776!2d-96.61626788481045!3d33.19817598085188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c15d7f9b4e6c9%3A0x7c4d7e7a8d1b3f0e!2s208%20E%20Louisiana%20St%2C%20McKinney%2C%20TX%2075069!5e0!3m2!1sen!2sus!4v1702500000000!5m2!1sen!2sus"
+              width="100%"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="High Ridge Advisory office location on Google Maps">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="https://placehold.co/120x50/ffffff/1a365d?text=HRA" alt="High Ridge Advisory">
+          </div>
+          <p>Boutique wealth management firm providing fiduciary financial guidance to families and businesses since 1997.</p>
+          <a href="https://highridgeadvisory.as.me/" class="btn btn-ghost btn-small" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
+        </div>
+
+        <div>
+          <h5>Quick Links</h5>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="about.html#team">Our Team</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <h5>Services</h5>
+          <div class="footer-links">
+            <a href="services.html#family">Family Wealth</a>
+            <a href="services.html#business">Business Planning</a>
+            <a href="services.html#investment">Investment Strategy</a>
+          </div>
+        </div>
+
+        <div class="footer-contact">
+          <h5>Connect</h5>
+          <p><a href="mailto:info@highridgeadvisory.com">info@highridgeadvisory.com</a></p>
+          <p><a href="tel:+19726325700">972.632.5700</a></p>
+          <p class="mt-4">
+            208 E. Louisiana Street<br>
+            Suite 301<br>
+            McKinney, Texas 75069
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">
+          Investment Advisory Services offered through Csenge Advisory Group, LLC, a Registered Investment Advisor. High Ridge Advisory is not affiliated with Csenge Advisory Solutions.
+        </p>
+        <p class="footer-copyright">
+          &copy; 2025 High Ridge Advisory. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
