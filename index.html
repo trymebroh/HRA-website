@@ -70,7 +70,7 @@
   <header class="navbar navbar--transparent" id="navbar">
     <div class="nav-container">
       <a href="/" class="nav-logo">
-        <img src="https://placehold.co/200x80/1a365d/ffffff?text=High+Ridge" alt="High Ridge Advisory Logo">
+        <img src="images/logo.webp" alt="High Ridge Advisory Logo">
       </a>
 
       <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
@@ -104,7 +104,7 @@
     <!-- Hero Section -->
     <section class="hero" style="background-image: url('https://placehold.co/1920x1080/2d3748/94a3b8?text=Mountain+Ridge+Landscape');">
       <div class="hero-content">
-        <h1>A Higher Standard of<br>Wealth Management</h1>
+        <h1>A Higher Standard of<br><span class="typewriter" id="typewriter"></span><span class="typewriter-cursor">|</span></h1>
         <p class="hero-subtitle">Fiduciary guidance for families and businesses who value clarity, integrity, and results.</p>
         <div class="hero-cta">
           <a href="https://highridgeadvisory.as.me/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Schedule a Consultation</a>
@@ -124,10 +124,7 @@
             <h2>We're Here to Simplify Your Financial Life</h2>
             <p class="text-large">At High Ridge, we believe building and managing wealth shouldn't be difficult. We aim to remove the confusion, deliver high-quality advice, and increase your knowledge and comfort with how your money is being invested.</p>
             <p>All decisions we make will be in your best interests.</p>
-            <a href="about.html" class="link-arrow">
-              Learn About Our Approach
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </a>
+            <a href="about.html" class="btn btn-primary">Learn About Our Approach</a>
           </div>
           <div class="image-reveal" data-animate="fade-in">
             <img src="https://placehold.co/600x500/e2e8f0/475569?text=Professional+Meeting" alt="Financial advisors meeting with clients">
@@ -233,21 +230,36 @@
             <span class="overline">Get In Touch</span>
             <h2>Let's Start a Conversation</h2>
             <div class="contact-info-item">
-              <h5>Email</h5>
-              <a href="mailto:info@highridgeadvisory.com">info@highridgeadvisory.com</a>
+              <a href="mailto:info@highridgeadvisory.com" style="display: flex; align-items: center; gap: 12px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                info@highridgeadvisory.com
+              </a>
             </div>
             <div class="contact-info-item">
-              <h5>Phone</h5>
-              <a href="tel:+19726325700">972.632.5700</a>
+              <a href="tel:+19726325700" style="display: flex; align-items: center; gap: 12px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                972.632.5700
+              </a>
             </div>
             <div class="contact-info-item">
-              <h5>Address</h5>
-              <p>208 E. Louisiana Street, Suite 301<br>McKinney, Texas 75069</p>
+              <div style="display: flex; align-items: flex-start; gap: 12px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <p style="margin: 0;">208 E. Louisiana Street, Suite 301<br>McKinney, Texas 75069</p>
+              </div>
             </div>
             <a href="contact.html" class="btn btn-primary mt-8">Send Us a Message</a>
           </div>
-          <div data-animate="fade-in">
-            <img src="https://placehold.co/600x400/e2e8f0/475569?text=McKinney+Office" alt="High Ridge Advisory office in McKinney, Texas">
+          <div data-animate="fade-in" style="border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-lg);">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3343.5484896344776!2d-96.61626788481045!3d33.19817598085188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c15d7f9b4e6c9%3A0x7c4d7e7a8d1b3f0e!2s208%20E%20Louisiana%20St%2C%20McKinney%2C%20TX%2075069!5e0!3m2!1sen!2sus!4v1702500000000!5m2!1sen!2sus"
+              width="100%"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="High Ridge Advisory office location on Google Maps">
+            </iframe>
           </div>
         </div>
       </div>
@@ -260,9 +272,9 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="https://placehold.co/120x50/ffffff/1a365d?text=HRA" alt="High Ridge Advisory">
+            <img src="images/logo.webp" alt="High Ridge Advisory">
           </div>
-          <p>Boutique wealth management firm providing fiduciary financial guidance to families and businesses since 1997.</p>
+          <p>Boutique wealth management Providing fiduciary financial guidance to families and businesses since 1997.</p>
           <a href="https://highridgeadvisory.as.me/" class="btn btn-ghost btn-small" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
         </div>
 
@@ -286,8 +298,8 @@
 
         <div class="footer-contact">
           <h5>Connect</h5>
-          <p><a href="mailto:info@highridgeadvisory.com">info@highridgeadvisory.com</a></p>
-          <p><a href="tel:+19726325700">972.632.5700</a></p>
+          <p><a href="mailto:info@highridgeadvisory.com" style="display: inline-flex; align-items: center; gap: 8px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>info@highridgeadvisory.com</a></p>
+          <p><a href="tel:+19726325700" style="display: inline-flex; align-items: center; gap: 8px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>972.632.5700</a></p>
           <p class="mt-4">
             208 E. Louisiana Street<br>
             Suite 301<br>
@@ -301,7 +313,7 @@
           Investment Advisory Services offered through Csenge Advisory Group, LLC, a Registered Investment Advisor. High Ridge Advisory is not affiliated with Csenge Advisory Solutions.
         </p>
         <p class="footer-copyright">
-          &copy; 2025 High Ridge Advisory. All rights reserved.
+          &copy; 2026 High Ridge Advisory. All rights reserved.
         </p>
       </div>
     </div>

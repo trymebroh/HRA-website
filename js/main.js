@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initScrollAnimations();
   initTeamAccordions();
   initSmoothScroll();
+  initTypewriter();
 });
 
 // ----------------------------------------
@@ -342,4 +343,76 @@ function debounce(func, wait) {
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
   };
+}
+
+// ----------------------------------------
+// Typewriter Animation
+// ----------------------------------------
+function initTypewriter() {
+  const typewriterElement = document.getElementById('typewriter');
+
+  if (!typewriterElement) return;
+
+  // Check for reduced motion preference
+  if (document.documentElement.classList.contains('reduce-motion')) {
+    typewriterElement.textContent = 'Wealth Planning';
+    return;
+  }
+
+  const words = [
+    'Wealth Planning',
+    'Financial Guidance',
+    'Investment Strategy',
+    'Client Service',
+    'Fiduciary Care'
+  ];
+
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let isPaused = false;
+
+  const typeSpeed = 80;      // Speed of typing
+  const deleteSpeed = 50;    // Speed of deleting
+  const pauseTime = 2000;    // Pause at complete word
+  const pauseBetween = 500;  // Pause before typing next word
+
+  function type() {
+    const currentWord = words[wordIndex];
+
+    if (isPaused) {
+      isPaused = false;
+      setTimeout(type, pauseBetween);
+      return;
+    }
+
+    if (isDeleting) {
+      // Deleting characters
+      typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+      charIndex--;
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, pauseBetween);
+      } else {
+        setTimeout(type, deleteSpeed);
+      }
+    } else {
+      // Typing characters
+      typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+      charIndex++;
+
+      if (charIndex === currentWord.length) {
+        isDeleting = true;
+        isPaused = true;
+        setTimeout(type, pauseTime);
+      } else {
+        setTimeout(type, typeSpeed);
+      }
+    }
+  }
+
+  // Start the animation
+  type();
 }
