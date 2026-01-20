@@ -541,6 +541,46 @@ p:last-child {
   width: 100%;
 }
 
+/* Header Phone */
+.nav-phone {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--gray-700);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-fast) ease;
+}
+
+.nav-phone:hover {
+  color: var(--navy-800);
+  background-color: var(--gray-100);
+}
+
+.nav-phone svg {
+  flex-shrink: 0;
+}
+
+.navbar--transparent .nav-phone {
+  color: var(--white);
+}
+
+.navbar--transparent .nav-phone:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.navbar.is-scrolled .nav-phone {
+  color: var(--gray-700);
+}
+
+.navbar.is-scrolled .nav-phone:hover {
+  color: var(--navy-800);
+  background-color: var(--gray-100);
+}
+
 /* Client Portal Dropdown */
 .nav-dropdown {
   position: relative;
@@ -781,6 +821,18 @@ p:last-child {
 
   .nav-cta {
     margin-top: var(--space-4);
+  }
+
+  .nav-phone {
+    color: var(--white);
+    font-size: var(--text-lg);
+    justify-content: center;
+    padding: var(--space-3);
+  }
+
+  .nav-phone:hover {
+    color: var(--gold-400);
+    background-color: transparent;
   }
 }
 
@@ -1626,6 +1678,29 @@ p:last-child {
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
   margin-bottom: var(--space-6);
+}
+
+.footer-social {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--gray-300);
+  transition: all var(--duration-fast) ease;
+}
+
+.footer-social a:hover {
+  background-color: var(--gold-500);
+  color: var(--navy-900);
 }
 
 .footer-heading {
