@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initTeamAccordions();
   initSmoothScroll();
   initTypewriter();
+  initClickableAddress();
 });
 
 // ----------------------------------------
@@ -96,14 +97,30 @@ function initNavbarScroll() {
 
   if (!isTransparent) return;
 
-  let lastScrollY = window.scrollY;
   let ticking = false;
 
   function updateNavbar() {
     const scrollY = window.scrollY;
-    const heroHeight = window.innerHeight * 0.3; // 30% of viewport height
+    const navbarHeight = navbar.offsetHeight;
+    const hero = document.querySelector('.hero');
+    const startFade = 50; // Start fading after 50px
 
-    if (scrollY > heroHeight) {
+    // End fade when navbar bottom reaches hero bottom
+    const heroHeight = hero ? hero.offsetHeight : window.innerHeight;
+    const endFade = heroHeight - navbarHeight;
+
+    // Calculate opacity based on scroll position
+    let opacity = 0;
+    if (scrollY > startFade) {
+      opacity = Math.min((scrollY - startFade) / (endFade - startFade), 1);
+    }
+
+    // Apply background with calculated opacity
+    navbar.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
+    navbar.style.boxShadow = opacity > 0.5 ? `0 4px 6px -1px rgba(0, 0, 0, ${opacity * 0.1}), 0 2px 4px -1px rgba(0, 0, 0, ${opacity * 0.06})` : 'none';
+
+    // Toggle class for text color changes at halfway point
+    if (opacity > 0.5) {
       navbar.classList.add('is-scrolled');
     } else {
       navbar.classList.remove('is-scrolled');
@@ -281,7 +298,27 @@ function initSmoothScroll() {
         const navbar = document.getElementById('navbar');
         const navbarHeight = navbar ? navbar.offsetHeight : 0;
 
-        const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight - 20;
+        let targetPosition;
+
+        // Special handling for hero scroll indicator going to #intro
+        if (targetId === '#intro' && this.classList.contains('scroll-indicator')) {
+          const sectionHeight = targetElement.offsetHeight;
+          const viewportHeight = window.innerHeight;
+          const sectionTop = targetElement.getBoundingClientRect().top + window.scrollY;
+
+          // On larger screens, center the section content
+          if (viewportHeight >= 768 && sectionHeight < viewportHeight) {
+            // Center the section in the viewport
+            const centeredOffset = (viewportHeight - sectionHeight) / 2;
+            targetPosition = sectionTop - centeredOffset;
+          } else {
+            // On smaller screens, put the heading at the top with navbar offset
+            targetPosition = sectionTop - navbarHeight - 20;
+          }
+        } else {
+          // Default behavior for other links
+          targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight - 20;
+        }
 
         window.scrollTo({
           top: targetPosition,
@@ -415,4 +452,73 @@ function initTypewriter() {
 
   // Start the animation
   type();
+}
+
+// ----------------------------------------
+// Clickable Address (Copy on Desktop, Maps on Mobile)
+// ----------------------------------------
+function initClickableAddress() {
+  const addressElements = document.querySelectorAll('.clickable-address');
+
+  if (addressElements.length === 0) return;
+
+  const fullAddress = '208 E. Louisiana Street, Suite 301, McKinney, Texas 75069';
+  const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(fullAddress);
+
+  // Detect mobile device
+  function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+           (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+  }
+
+  addressElements.forEach(element => {
+    // Add appropriate cursor and hover styles
+    element.style.cursor = 'pointer';
+
+    element.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      if (isMobileDevice()) {
+        // On mobile, open maps app
+        window.open(mapsUrl, '_blank');
+      } else {
+        // On desktop, copy to clipboard
+        navigator.clipboard.writeText(fullAddress).then(() => {
+          showCopiedTooltip(element);
+        }).catch(err => {
+          // Fallback for older browsers
+          const textArea = document.createElement('textarea');
+          textArea.value = fullAddress;
+          textArea.style.position = 'fixed';
+          textArea.style.left = '-9999px';
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          showCopiedTooltip(element);
+        });
+      }
+    });
+  });
+
+  function showCopiedTooltip(element) {
+    // Check if tooltip already exists
+    let tooltip = element.querySelector('.address-tooltip');
+
+    if (!tooltip) {
+      tooltip = document.createElement('span');
+      tooltip.className = 'address-tooltip';
+      tooltip.textContent = 'Copied!';
+      element.style.position = 'relative';
+      element.appendChild(tooltip);
+    }
+
+    // Show tooltip
+    tooltip.classList.add('is-visible');
+
+    // Hide after 2 seconds
+    setTimeout(() => {
+      tooltip.classList.remove('is-visible');
+    }, 2000);
+  }
 }
