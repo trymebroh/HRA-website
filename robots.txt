@@ -1,0 +1,11 @@
+# robots.txt for High Ridge Advisory
+# https://highridgeadvisory.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://highridgeadvisory.com/sitemap.xml
+
+# Disallow archive and internal files
+Disallow: /archive/

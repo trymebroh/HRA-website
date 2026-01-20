@@ -1,5 +1,6 @@
-# Archived prompt document - not tracked
+# Archived files - not tracked
 archive/high-ridge-advisory-prompt-v2.md
+archive/optimized-images/
 
 # OS files
 .DS_Store
@@ -14,3 +15,8 @@ Thumbs.db
 
 # Node modules (if added later)
 node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.production
