@@ -76,22 +76,25 @@
 
   <main id="main-content">
     <!-- Hero Section -->
-    <section class="hero hero--compact" style="background-image: url('https://placehold.co/1920x800/2d3748/94a3b8?text=About+Hero');">
-      <div class="hero-content">
-        <h1>Who We Are</h1>
-        <p class="hero-subtitle">High Ridge Advisory is a boutique wealth management firm led by James Madden, who has been serving families, professionals, and business owners since 1997.</p>
+    <section class="hero hero--compact hero--darker" style="background-image: url('images/about-hero.jpg'); min-height: 75vh;">
+      <div class="hero-content" style="text-align: right; position: absolute; right: var(--section-padding-x);">
+        <h1 style="margin-left: auto;">Who We Are</h1>
+        <p class="hero-subtitle" style="margin-left: auto;">High Ridge Advisory is a boutique wealth<br>management firm led by James Madden,<br>who has been serving families,<br>professionals, and business<br>owners since 1997.</p>
       </div>
+      <a href="#our-story" class="scroll-indicator" aria-label="Scroll to content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </a>
     </section>
 
     <!-- Our Story Section -->
-    <section class="section">
+    <section class="section" id="our-story">
       <div class="container">
         <div class="two-col">
           <div data-animate="fade-in-up">
             <span class="overline">Our Story</span>
             <h2>Independent Advice, Your Best Interest</h2>
             <p class="text-large">As an independent advisor, we operate with full transparency, using Fidelity and Schwab Institutional platforms as our custodians and offering sophisticated investment solutions through the Csenge Advisory Network.</p>
-            <p>Our independence means we answer only to you—not to a parent company, not to shareholders, and not to product quotas. Every recommendation we make is designed to help you achieve your financial goals.</p>
+            <p>Our independence means we answer <strong><em>only to you</em></strong>—not to a parent company, not to shareholders, and not to product quotas. Every recommendation we make is designed to help you achieve your financial goals.</p>
           </div>
           <div class="image-reveal" data-animate="fade-in">
             <img src="images/about-hiking.jpg" alt="Hiker overlooking mountain vista" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px;">
@@ -201,7 +204,7 @@
               <img src="images/kyle-harrison.jpg" alt="Kyle Harrison, Advisor">
             </div>
             <div class="card-team-content">
-              <h4>Kyle Harrison</h4>
+              <h4>Kyle Harrison, CDFA®, CEPA®</h4>
               <p class="card-team-title">Advisor</p>
               <button class="card-team-toggle" aria-expanded="false" data-team-toggle="kyle">
                 View Bio
@@ -209,11 +212,11 @@
               </button>
               <div class="card-team-bio" id="bio-kyle">
                 <div class="card-team-bio-content">
-                  <p>Kyle Harrison graduated from Harding University with a Bachelor's in Bible & Ministry and studied Licensed Professional Counseling. He is pursuing a CFP® designation and a Master's in Financial Planning at Liberty University.</p>
+                  <p>Kyle Harrison graduated from Harding University with a Bachelor's in Bible & Ministry and studied Licensed Professional Counseling. He is pursuing a CFP® designation.</p>
                   <p>Married since 2018, Kyle and his wife, Alicia, enjoy traveling, volunteering at their church, and hosting community events. His passion lies in helping families manage their finances through good stewardship and radical generosity.</p>
                   <ul class="credentials-list">
+                    <li>CDFA®: Certified Divorce Financial Analyst®</li>
                     <li>CEPA®: Certified Exit Planning Advisor®</li>
-                    <li>FINRA Registered: Series 6 (Investment Company and Variable Contracts)</li>
                     <li>FINRA Registered: Series 7 (General Securities)</li>
                     <li>FINRA Registered: Series 63 (State Securities)</li>
                     <li>FINRA Registered: Series 65 (Investment Advisory)</li>
@@ -228,12 +231,15 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="section section--navy">
+    <section class="section section--navy cta-section">
       <div class="container">
-        <div class="cta-banner" data-animate="fade-in-up">
-          <h2>Let's Start the Conversation</h2>
-          <p>Schedule a complimentary consultation to discuss how we can help you achieve your financial goals.</p>
-          <a href="https://highridgeadvisory.as.me/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Schedule Your Consultation</a>
+        <div class="cta-enhanced" data-animate="fade-in-up">
+          <h2 class="heading-emphasis">Let's Start the Conversation</h2>
+          <p class="cta-subtext">Schedule a complimentary consultation to discuss how we can help you achieve your financial goals.</p>
+          <a href="https://highridgeadvisory.as.me/" class="btn btn-gold" target="_blank" rel="noopener noreferrer">Schedule Your Consultation</a>
+          <div class="cta-decoration cta-decoration--bottom">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
         </div>
       </div>
     </section>
@@ -274,10 +280,10 @@
           <div class="footer-contact-items">
             <p><a href="mailto:info@highridgeadvisory.com" style="display: inline-flex; align-items: center; gap: 16px;"><span class="footer-icon-circle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>info@highridgeadvisory.com</a></p>
             <p><a href="tel:+19726325700" style="display: inline-flex; align-items: center; gap: 16px;"><span class="footer-icon-circle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>972.632.5700</a></p>
-            <p class="clickable-address" style="display: inline-flex; align-items: flex-start; gap: 16px;">
+            <p><a href="https://www.google.com/maps/search/?api=1&query=208+E+Louisiana+Street+Suite+301+McKinney+Texas+75069" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: flex-start; gap: 16px;">
               <span class="footer-icon-circle" style="margin-top: 2px;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
               <span>208 E. Louisiana Street<br>Suite 301<br>McKinney, Texas 75069</span>
-            </p>
+            </a></p>
           </div>
         </div>
       </div>

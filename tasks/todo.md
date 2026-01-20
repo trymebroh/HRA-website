@@ -175,3 +175,35 @@ Build a complete 5-page website for High Ridge Advisory, a boutique wealth manag
 - Forms configured for Netlify (requires deployment to test)
 - Responsive breakpoints: 968px (tablet), 768px (mobile), 576px (small mobile)
 - Accessibility: Skip link, ARIA labels, focus indicators, reduced motion support
+
+---
+
+### Session Notes (2026-01-19)
+
+**Styling & UX Improvements:**
+- Added bold styling to "avoid the big dips" in services page callout box
+- Fixed footer street address hover effects on all pages (email, phone, address now all have matching hover - icon fills white, turns navy)
+- Made "only to you" bold and italic in About page Our Story section
+
+**About Page Hero:**
+- Adjusted hero copy line breaks to create diagonal left edge (long to short progression)
+- Removed max-width constraint to let explicit line breaks control layout
+
+**Kyle Harrison Bio Updates:**
+- Added CDFA® and CEPA® designations after name (Kyle Harrison, CDFA®, CEPA®)
+- Added CDFA® to credentials list
+- Removed Master's in Financial Planning reference
+- Removed Series 6 from credentials list
+- Made bio section scrollable (max-height: min(800px, 60vh) with overflow-y: auto) for narrow screens
+
+**Files Modified:**
+- `about.html` - Hero copy, Kyle bio updates, "only to you" styling
+- `contact.html` - Footer street address link
+- `css/styles.css` - Callout box bold styling, team bio scrollable
+- `index.html` - Footer street address link
+- `services.html` - Footer street address link
+- `thank-you.html` - Footer street address link
+
+**New Images Added:**
+- `images/about-hero.jpg` - About page hero (lake/mountain scene)
+- `images/contact-hero.jpg` - Contact page hero (McKinney downtown)
