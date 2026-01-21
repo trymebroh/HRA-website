@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
   initSmoothScroll();
   initTypewriter();
   initClickableAddress();
+  initFormLoadingStates();
+  initExitIntentPopup();
 });
 
 // ----------------------------------------
@@ -521,4 +523,220 @@ function initClickableAddress() {
       tooltip.classList.remove('is-visible');
     }, 2000);
   }
+}
+
+// ----------------------------------------
+// Form Loading States & Bot Protection
+// ----------------------------------------
+function initFormLoadingStates() {
+  const forms = document.querySelectorAll('form[data-netlify="true"], form[netlify]');
+  const MIN_SUBMIT_TIME = 3000; // Minimum 3 seconds before submission allowed
+
+  forms.forEach(form => {
+    const submitButton = form.querySelector('button[type="submit"]');
+    if (!submitButton) return;
+
+    // Record when form was loaded (for time-based bot detection)
+    const formLoadTime = Date.now();
+    const formLoadedInput = form.querySelector('#form-loaded');
+    if (formLoadedInput) {
+      formLoadedInput.value = formLoadTime;
+    }
+
+    // Store original button content
+    const originalButtonText = submitButton.innerHTML;
+
+    form.addEventListener('submit', function(e) {
+      // Bot detection checks
+      const honeypot1 = form.querySelector('input[name="bot-field"]');
+      const honeypot2 = form.querySelector('input[name="website"]');
+      const timeSinceLoad = Date.now() - formLoadTime;
+
+      // Check honeypot fields (bots fill these, humans don't see them)
+      if ((honeypot1 && honeypot1.value) || (honeypot2 && honeypot2.value)) {
+        e.preventDefault();
+        console.log('Bot detected: honeypot filled');
+        // Silently fail - don't tell bots why it failed
+        showFormError(form, 'Unable to submit form. Please try again later.');
+        return;
+      }
+
+      // Check submission time (bots submit instantly, humans need time)
+      if (timeSinceLoad < MIN_SUBMIT_TIME) {
+        e.preventDefault();
+        console.log('Bot detected: submitted too fast (' + timeSinceLoad + 'ms)');
+        showFormError(form, 'Please take a moment to review your message before submitting.');
+        return;
+      }
+
+      // Passed bot checks - show loading state
+      form.classList.add('is-submitting');
+      submitButton.disabled = true;
+      submitButton.innerHTML = `
+        <span class="btn-spinner"></span>
+        <span>Sending...</span>
+      `;
+
+      // For Netlify forms, let the form submit naturally
+    });
+  });
+}
+
+// Show form error message
+function showFormError(form, message) {
+  // Remove any existing error
+  const existingError = form.querySelector('.form-error-message');
+  if (existingError) existingError.remove();
+
+  // Create and insert error message
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'form-error-message';
+  errorDiv.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="12" y1="8" x2="12" y2="12"/>
+      <line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>
+    <span>${message}</span>
+  `;
+
+  const submitButton = form.querySelector('button[type="submit"]');
+  submitButton.parentNode.insertBefore(errorDiv, submitButton);
+
+  // Auto-remove after 5 seconds
+  setTimeout(() => {
+    errorDiv.remove();
+  }, 5000);
+}
+
+// ----------------------------------------
+// Exit Intent Popup for Lead Capture
+// ----------------------------------------
+function initExitIntentPopup() {
+  // Don't show on thank-you page or if already shown this session
+  if (window.location.pathname.includes('thank-you') ||
+      sessionStorage.getItem('exitPopupShown')) {
+    return;
+  }
+
+  let popupShown = false;
+  let popupLoadTime = null;
+  const MIN_SUBMIT_TIME = 2000; // 2 seconds minimum for popup form
+
+  // Create popup HTML with email capture form
+  const popupHTML = `
+    <div class="exit-popup" id="exit-popup" role="dialog" aria-modal="true" aria-labelledby="exit-popup-title">
+      <div class="exit-popup-overlay"></div>
+      <div class="exit-popup-content">
+        <button class="exit-popup-close" aria-label="Close popup">&times;</button>
+        <div class="exit-popup-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <h3 id="exit-popup-title">Before You Go...</h3>
+        <p>Get our free guide to retirement planning or schedule a consultation with our team.</p>
+
+        <form class="exit-popup-form" id="exit-popup-form" name="exit-intent" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="exit-intent">
+          <!-- Honeypot fields -->
+          <div class="form-honeypot" aria-hidden="true">
+            <input name="bot-field" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-honeypot" aria-hidden="true">
+            <input type="url" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="exit-popup-form-row">
+            <input type="email" name="email" placeholder="Enter your email" required class="exit-popup-input" autocomplete="email">
+            <button type="submit" class="btn btn-primary">Send Guide</button>
+          </div>
+          <p class="exit-popup-disclaimer">We respect your privacy. Unsubscribe anytime.</p>
+        </form>
+
+        <div class="exit-popup-divider">
+          <span>or</span>
+        </div>
+
+        <div class="exit-popup-actions">
+          <a href="https://highridgeadvisory.as.me/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Book a Free Consultation</a>
+          <button class="btn btn-ghost exit-popup-dismiss">Maybe Later</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Append popup to body
+  document.body.insertAdjacentHTML('beforeend', popupHTML);
+
+  const popup = document.getElementById('exit-popup');
+  const closeBtn = popup.querySelector('.exit-popup-close');
+  const dismissBtn = popup.querySelector('.exit-popup-dismiss');
+  const overlay = popup.querySelector('.exit-popup-overlay');
+  const form = popup.querySelector('#exit-popup-form');
+
+  function showPopup() {
+    if (popupShown) return;
+    popupShown = true;
+    popupLoadTime = Date.now(); // Record when popup was shown for bot detection
+    sessionStorage.setItem('exitPopupShown', 'true');
+    popup.classList.add('is-visible');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hidePopup() {
+    popup.classList.remove('is-visible');
+    document.body.style.overflow = '';
+  }
+
+  // Form submission with bot protection
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      const honeypot1 = form.querySelector('input[name="bot-field"]');
+      const honeypot2 = form.querySelector('input[name="website"]');
+      const timeSinceShow = Date.now() - popupLoadTime;
+
+      // Check honeypots
+      if ((honeypot1 && honeypot1.value) || (honeypot2 && honeypot2.value)) {
+        e.preventDefault();
+        console.log('Bot detected in exit popup: honeypot filled');
+        return;
+      }
+
+      // Check timing
+      if (timeSinceShow < MIN_SUBMIT_TIME) {
+        e.preventDefault();
+        console.log('Bot detected in exit popup: too fast');
+        const input = form.querySelector('input[type="email"]');
+        input.setCustomValidity('Please wait a moment before submitting.');
+        input.reportValidity();
+        setTimeout(() => input.setCustomValidity(''), 2000);
+        return;
+      }
+
+      // Show loading state
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="btn-spinner"></span>';
+    });
+  }
+
+  // Detect exit intent (mouse leaving viewport at top)
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY < 10) {
+      showPopup();
+    }
+  });
+
+  // Close handlers
+  closeBtn.addEventListener('click', hidePopup);
+  dismissBtn.addEventListener('click', hidePopup);
+  overlay.addEventListener('click', hidePopup);
+
+  // Close on escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && popup.classList.contains('is-visible')) {
+      hidePopup();
+    }
+  });
 }

@@ -24,8 +24,8 @@
 ## Phase 2: High Priority (Weeks 3-4)
 
 ### Navigation & Accessibility
-- [ ] Add phone number to header navigation
-- [ ] Add social media links to footer (LinkedIn, Facebook, etc.)
+- [x] Add phone number to header navigation ✅
+- [x] Add social media links to footer (LinkedIn, Instagram, Facebook) ✅
 
 ### Conversion Optimization
 - [ ] Create FAQ section on contact page (address common objections)
@@ -58,10 +58,16 @@
 
 ### Technical Polish
 - [x] Add cookie acceptance banner ✅ (Completed 2026-01-19)
-- [ ] Create custom 404 error page
-- [ ] Add form loading states/feedback
-- [ ] Implement exit-intent popup for lead capture
-- [ ] Add booking urgency indicator (e.g., "Now scheduling for February")
+- [x] Create custom 404 error page ✅ (Completed 2026-01-20)
+- [x] Add form loading states/feedback ✅ (Completed 2026-01-20)
+- [x] Implement exit-intent popup for lead capture ✅ (Completed 2026-01-20)
+- [x] Add booking urgency indicator (e.g., "Now scheduling for February") ✅ (Completed 2026-01-20)
+
+### Client Portal Experience
+- [ ] Create redirect flow/interstitial screen for external portal links
+  - Similar to intentionholistichealth.com's PracticeBetter portal redirect
+  - Shows branded loading screen with message while transitioning to external portal
+  - Improves UX by acknowledging the user is leaving the site
 
 ---
 
@@ -135,4 +141,4 @@
 
 ---
 
-*Last updated: 2026-01-19*
+*Last updated: 2026-01-20*

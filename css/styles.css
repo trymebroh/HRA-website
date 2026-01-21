@@ -2198,3 +2198,274 @@ body.menu-open {
     max-width: 140px;
   }
 }
+
+/* ----------------------------------------
+   Form Loading States
+   ---------------------------------------- */
+.is-submitting .form-input,
+.is-submitting .form-textarea,
+.is-submitting .form-select {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.is-submitting button[type="submit"] {
+  opacity: 0.9;
+  cursor: not-allowed;
+}
+
+.btn-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button[type="submit"] .btn-spinner + span {
+  margin-left: var(--space-2);
+}
+
+/* Form Error Message */
+.form-error-message {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-md);
+  color: #dc2626;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-4);
+  animation: shake 0.5s ease-in-out;
+}
+
+.form-error-message svg {
+  flex-shrink: 0;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+/* ----------------------------------------
+   Exit Intent Popup
+   ---------------------------------------- */
+.exit-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--duration-normal) ease, visibility var(--duration-normal) ease;
+}
+
+.exit-popup.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.exit-popup-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.exit-popup-content {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-10) var(--space-8);
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: scale(0.9) translateY(20px);
+  transition: transform var(--duration-normal) var(--ease-out-cubic);
+}
+
+.exit-popup.is-visible .exit-popup-content {
+  transform: scale(1) translateY(0);
+}
+
+.exit-popup-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.exit-popup-close:hover {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.exit-popup-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-6);
+  background: var(--navy-50);
+  border-radius: 50%;
+  color: var(--navy-600);
+}
+
+.exit-popup-content h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--navy-900);
+  margin-bottom: var(--space-3);
+}
+
+.exit-popup-content p {
+  color: var(--gray-600);
+  margin-bottom: var(--space-6);
+  line-height: 1.6;
+}
+
+.exit-popup-form {
+  margin-bottom: var(--space-4);
+}
+
+.exit-popup-form-row {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.exit-popup-input {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
+}
+
+.exit-popup-input:focus {
+  outline: none;
+  border-color: var(--navy-500);
+  box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
+}
+
+.exit-popup-disclaimer {
+  font-size: var(--text-xs);
+  color: var(--gray-500);
+  margin-top: var(--space-2);
+}
+
+.exit-popup-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin: var(--space-4) 0;
+  color: var(--gray-400);
+  font-size: var(--text-sm);
+}
+
+.exit-popup-divider::before,
+.exit-popup-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gray-200);
+}
+
+.exit-popup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.exit-popup-actions .btn {
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .exit-popup-content {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .exit-popup-form-row {
+    flex-direction: column;
+  }
+
+  .exit-popup-form-row .btn {
+    width: 100%;
+  }
+}
+
+/* ----------------------------------------
+   Booking Urgency Indicator
+   ---------------------------------------- */
+.booking-urgency {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--gold-100);
+  border: 1px solid var(--gold-300);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--navy-800);
+  margin-bottom: var(--space-4);
+}
+
+.booking-urgency-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold-500);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+/* Urgency indicator in CTA sections */
+.cta .booking-urgency {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--white);
+}
+
+.cta .booking-urgency-dot {
+  background: var(--gold-400);
+}

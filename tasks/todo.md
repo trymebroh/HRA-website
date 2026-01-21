@@ -207,3 +207,51 @@ Build a complete 5-page website for High Ridge Advisory, a boutique wealth manag
 **New Images Added:**
 - `images/about-hero.jpg` - About page hero (lake/mountain scene)
 - `images/contact-hero.jpg` - Contact page hero (McKinney downtown)
+
+---
+
+### Session Notes (2026-01-20)
+
+**Footer Social Media Links:**
+- Added Instagram link: https://www.instagram.com/highridgeadvisory/
+- Added Facebook link: https://www.facebook.com/p/High-Ridge-Advisory-61577601039831/
+- Social icons now show LinkedIn, Instagram, and Facebook in footer across all 5 pages
+
+**Jay Madden Bio Photo Update:**
+- Converted new photo (IMG_0741.JPG) to WebP lossless format
+- Replaced `images/jay-madden.jpg` with `images/jay-madden.webp`
+- Updated `about.html` to reference new WebP file
+- Moved original to `images/jay-madden-original.jpg`
+
+**Technical Polish (Phase 4 Complete):**
+- Created custom 404 error page (`404.html`) with branded design and navigation
+- Added form loading states with spinner and "Sending..." text
+- Implemented exit-intent popup with email capture form for lead generation
+- Added booking urgency indicator ("Now scheduling for February") to homepage CTA and contact page
+
+**Bot Protection & Spam Filtering:**
+- Added dual honeypot fields to contact form (text + URL field)
+- Added time-based rejection filter (3 second minimum before submission)
+- Added bot protection to exit popup form (2 second minimum)
+- Form error messages with shake animation for rejected submissions
+- Silent failures to prevent bots from adapting
+
+**Exit Popup Enhancements:**
+- Upgraded from simple CTA to email capture form
+- Offers free retirement planning guide
+- Includes "Book a Consultation" fallback option
+- Only shows once per session, not on thank-you page
+
+**Files Created:**
+- `404.html` - Custom 404 error page
+
+**Files Modified:**
+- `index.html` - Social links, booking urgency indicator
+- `about.html` - Social links, Jay photo updated to WebP
+- `services.html` - Social links
+- `contact.html` - Social links, bot protection fields, booking urgency
+- `thank-you.html` - Social links
+- `js/main.js` - Form loading states, bot protection, exit popup with form
+- `css/styles.css` - Form error styles, exit popup form styles, booking urgency styles
+- `tasks/FUTURE-TASKS.md` - Marked completed items, added redirect flow task
+- `tasks/todo.md` - Session notes
