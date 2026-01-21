@@ -2469,3 +2469,112 @@ button[type="submit"] .btn-spinner + span {
 .cta .booking-urgency-dot {
   background: var(--gold-400);
 }
+
+/* ----------------------------------------
+   About Page - Mobile Styles
+   ---------------------------------------- */
+
+/* Hide mobile images on desktop, show on mobile */
+.our-story-image-mobile,
+.intro-image-mobile {
+  display: none;
+}
+
+.our-story-image-desktop,
+.intro-image-desktop {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  /* Navbar logo - add top margin on mobile */
+  .nav-logo {
+    margin-top: var(--space-3);
+  }
+
+  .nav-logo img {
+    height: 70px;
+  }
+
+  /* Mobile menu - white text for better visibility */
+  .nav-menu.is-open .nav-link {
+    color: var(--white);
+  }
+
+  .nav-menu.is-open .nav-link:hover {
+    color: var(--gold-400);
+  }
+
+  .nav-menu.is-open .nav-dropdown-toggle {
+    color: var(--white);
+  }
+
+  .nav-menu.is-open .nav-phone {
+    color: var(--white);
+  }
+
+  /* Mobile menu - gold Book a Meeting button */
+  .nav-menu.is-open .nav-cta {
+    background: var(--gold-500);
+    color: var(--navy-900);
+    border-color: var(--gold-500);
+  }
+
+  .nav-menu.is-open .nav-cta:hover {
+    background: var(--gold-400);
+    border-color: var(--gold-400);
+  }
+
+  /* About hero - left align on mobile */
+  .hero--about .hero-content,
+  .hero--darker .hero-content {
+    text-align: left !important;
+    right: auto !important;
+    left: var(--section-padding-x);
+  }
+
+  .hero--about .hero-content h1,
+  .hero--about .hero-content .hero-subtitle,
+  .hero--darker .hero-content h1,
+  .hero--darker .hero-content .hero-subtitle {
+    margin-left: 0 !important;
+    margin-right: auto;
+  }
+
+  /* Our Story section - show mobile image, hide desktop */
+  .our-story-image-mobile {
+    display: block;
+    width: 75%;
+    margin: var(--space-6) 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .our-story-image-mobile img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+  }
+
+  .our-story-image-desktop {
+    display: none;
+  }
+
+  /* Home intro section - show mobile image, hide desktop */
+  .intro-image-mobile {
+    display: block;
+    width: 75%;
+    margin: var(--space-6) 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .intro-image-mobile img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+  }
+
+  .intro-image-desktop {
+    display: none;
+  }
+}

@@ -69,6 +69,11 @@
   - Shows branded loading screen with message while transitioning to external portal
   - Improves UX by acknowledging the user is leaving the site
 
+### Exit Popup Enhancements
+- [ ] Embed Acuity/scheduling calendar directly in exit popup
+  - Replace external link with inline calendar widget
+  - Allows booking without leaving the site
+
 ---
 
 ## Integration & Tools
