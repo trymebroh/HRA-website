@@ -789,9 +789,17 @@ p:last-child {
     color: var(--gold-400);
   }
 
+  .nav-dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
   .nav-dropdown-toggle {
     color: var(--white);
     font-size: var(--text-xl);
+    justify-content: center;
   }
 
   .nav-dropdown-menu {
@@ -802,6 +810,10 @@ p:last-child {
     max-height: 0;
     overflow: hidden;
     padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .nav-dropdown.is-open .nav-dropdown-menu {
@@ -1113,6 +1125,10 @@ p:last-child {
   margin-right: 0;
   margin-top: var(--space-4);
   text-align: left;
+}
+
+.hero--right .hero-subtitle br {
+  display: none;
 }
 
 .hero--right .hero-cta {
@@ -1788,6 +1804,9 @@ p:last-child {
 }
 
 .cta-enhanced {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   padding: var(--space-8) var(--space-8);
   max-width: 700px;
@@ -2460,14 +2479,56 @@ button[type="submit"] .btn-spinner + span {
 }
 
 /* Urgency indicator in CTA sections */
-.cta .booking-urgency {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
-  color: var(--white);
+.cta-section .booking-urgency {
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--gold-400);
+  margin-bottom: var(--space-2);
+  font-style: italic;
+  font-size: var(--text-sm);
+  width: 100%;
 }
 
-.cta .booking-urgency-dot {
+.cta-section .booking-urgency-dot {
   background: var(--gold-400);
+}
+
+/* ----------------------------------------
+   About Page - Section Transitions
+   ---------------------------------------- */
+#our-story + .section--gray {
+  box-shadow: inset 0 8px 16px -8px rgba(0, 0, 0, 0.15);
+}
+
+/* Contact page - schedule section styling */
+.contact-schedule {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contact-schedule h5,
+.contact-schedule p,
+.contact-schedule .link-arrow,
+.contact-schedule .booking-urgency {
+  text-align: left;
+}
+
+.contact-schedule .link-arrow {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.contact-schedule .booking-urgency {
+  display: inline-flex;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--gold-500);
+  font-style: italic;
+  font-size: var(--text-sm);
 }
 
 /* ----------------------------------------
@@ -2524,35 +2585,350 @@ button[type="submit"] .btn-spinner + span {
     border-color: var(--gold-400);
   }
 
-  /* About hero - left align on mobile */
+  /* Home hero - use grid to fix subtitle position independent of h1 height */
+  .hero--left .hero-content {
+    display: grid;
+    grid-template-rows: 250px auto auto;
+    align-items: start;
+    margin-top: -6rem;
+  }
+
+  .hero--left h1 {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .hero--left .hero-headline {
+    display: block;
+  }
+
+  .hero--left h1 br {
+    display: none;
+  }
+
+  .hero--left .hero-subtitle {
+    margin-top: 9rem;
+    text-align: center;
+  }
+
+  .hero--left .hero-cta {
+    justify-content: center;
+  }
+
+  /* Services hero - right align on mobile */
+  .hero--right {
+    justify-content: flex-end;
+  }
+
+  .hero--right .hero-content {
+    text-align: right;
+    padding-right: var(--section-padding-x);
+    padding-left: var(--section-padding-x);
+  }
+
+  .hero--right .hero-content h1 {
+    text-align: right;
+  }
+
+  .hero--right .hero-content .hero-subtitle {
+    text-align: right;
+  }
+
+  .hero--right .hero-subtitle .text-gold {
+    white-space: nowrap;
+  }
+
+  .hero--right .hero-subtitle br {
+    display: block;
+  }
+
+  /* Contact page hero - position water tower and left align text */
+  .hero--compact[style*="contact-hero"] {
+    background-position: 25% center !important;
+  }
+
+  .hero--compact[style*="contact-hero"] .hero-content {
+    position: absolute !important;
+    right: auto !important;
+    left: var(--section-padding-x) !important;
+    transform: none;
+    bottom: 25%;
+    top: auto;
+    text-align: left !important;
+    width: calc(100% - 2 * var(--section-padding-x));
+  }
+
+  .hero--compact[style*="contact-hero"] .hero-content h1 {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  .hero--compact[style*="contact-hero"] .hero-content .hero-subtitle {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    text-align: left;
+  }
+
+  /* Services page - Business Planning section on mobile */
+  #business .two-col > div:first-child .overline {
+    display: block;
+    text-align: center;
+  }
+
+  #business .two-col > div:first-child h2 {
+    text-align: center;
+  }
+
+  #business .two-col > div:first-child .text-large {
+    text-align: center;
+  }
+
+  #business .two-col > div:first-child .btn {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    white-space: normal;
+    padding: var(--space-4) var(--space-6);
+  }
+
+  #business .grid-2 {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+  }
+
+  #business .service-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    background: var(--gray-50);
+    border-radius: 8px;
+    border: 1px solid var(--gray-200);
+    text-align: left;
+  }
+
+  #business .service-item svg {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    color: var(--gold-500);
+  }
+
+  #business .service-item span {
+    font-size: var(--text-base);
+    line-height: var(--leading-snug);
+    color: var(--gray-700);
+  }
+
+  #business .service-item span br {
+    display: none;
+  }
+
+  /* Home intro section - center overline, title, image, and CTA on mobile */
+  .intro-content .overline {
+    display: block;
+    text-align: center;
+  }
+
+  .intro-content h2 {
+    text-align: center;
+    margin-bottom: var(--space-8);
+  }
+
+  .intro-image-mobile {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .intro-image-mobile img {
+    border-radius: var(--radius-lg);
+  }
+
+  .intro-image-mobile + p {
+    text-align: center;
+  }
+
+  .intro-content .btn {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Services section - center CTA links in cards, but keep bullet points left-aligned */
+  .card-service {
+    text-align: center;
+  }
+
+  .card-service ul {
+    text-align: left;
+    display: inline-block;
+  }
+
+  .card-service .link-arrow {
+    justify-content: center;
+  }
+
+
+  /* Contact preview section - center titles and button on mobile */
+  .section--gray .two-col > div:first-child .overline {
+    display: block;
+    text-align: center;
+  }
+
+  .section--gray .two-col > div:first-child h2 {
+    text-align: center;
+  }
+
+  .section--gray .two-col > div:first-child .btn {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Footer - grid layout on mobile with Services and Quick Links side by side */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: var(--space-8);
+  }
+
+  .footer-grid > div:nth-child(1) {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin-bottom: var(--space-6);
+  } /* footer-brand - full width */
+
+  .footer-grid > div:nth-child(2) {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: right;
+  } /* Quick Links - right */
+
+  .footer-grid > div:nth-child(2) .footer-links {
+    align-items: flex-end;
+  }
+
+  .footer-grid > div:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  } /* Services - left */
+
+  .footer-grid > div:nth-child(4) {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: var(--space-6);
+  } /* Connect - full width */
+
+  /* Footer brand - two column layout on mobile */
+  .footer-brand {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: var(--space-3) var(--space-4);
+    max-width: 100%;
+    align-items: start;
+  }
+
+  .footer-brand .footer-logo {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 0;
+  }
+
+  .footer-brand .footer-logo img {
+    height: 60px;
+  }
+
+  .footer-brand > p {
+    grid-column: 1;
+    grid-row: 2;
+    font-size: var(--text-xs);
+    line-height: var(--leading-normal);
+    margin-bottom: 0;
+    max-width: 180px;
+  }
+
+  .footer-brand .btn {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    margin-top: 0;
+    white-space: nowrap;
+    font-size: var(--text-xs);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .footer-brand .footer-social {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    margin-top: 0;
+  }
+
+  .footer-brand .footer-social a {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* About hero - center on mobile */
   .hero--about .hero-content,
   .hero--darker .hero-content {
-    text-align: left !important;
+    text-align: center !important;
     right: auto !important;
-    left: var(--section-padding-x);
+    left: 50% !important;
+    transform: translateX(-50%);
+    width: calc(100% - 2 * var(--section-padding-x));
+    max-width: 100%;
   }
 
   .hero--about .hero-content h1,
   .hero--about .hero-content .hero-subtitle,
   .hero--darker .hero-content h1,
   .hero--darker .hero-content .hero-subtitle {
-    margin-left: 0 !important;
-    margin-right: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Hide br tags in hero subtitle on mobile for natural text wrapping */
+  .hero--darker .hero-subtitle br,
+  .hero--about .hero-subtitle br {
+    display: none;
+  }
+
+  /* Our Story section - center elements on mobile */
+  .our-story-content .overline {
+    display: block;
+    text-align: center;
+  }
+
+  .our-story-content h2 {
+    text-align: center;
   }
 
   /* Our Story section - show mobile image, hide desktop */
   .our-story-image-mobile {
     display: block;
     width: 75%;
-    margin: var(--space-6) 0;
-    border-radius: var(--radius-lg);
+    margin: var(--space-6) auto;
+    border-radius: 12px;
     overflow: hidden;
   }
 
   .our-story-image-mobile img {
     width: 100%;
     height: auto;
-    border-radius: var(--radius-lg);
+    display: block;
+    border-radius: 12px;
   }
 
   .our-story-image-desktop {
@@ -2563,18 +2939,19 @@ button[type="submit"] .btn-spinner + span {
   .intro-image-mobile {
     display: block;
     width: 75%;
-    margin: var(--space-6) 0;
-    border-radius: var(--radius-lg);
+    margin: var(--space-6) auto;
+    border-radius: 12px;
     overflow: hidden;
   }
 
   .intro-image-mobile img {
     width: 100%;
     height: auto;
-    border-radius: var(--radius-lg);
+    display: block;
+    border-radius: 12px;
   }
 
   .intro-image-desktop {
-    display: none;
+    display: none !important;
   }
 }
