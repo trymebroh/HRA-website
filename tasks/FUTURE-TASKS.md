@@ -87,6 +87,8 @@
 ### Pending
 - [ ] Get GA4 Measurement ID and update placeholder
 - [ ] Get MailerLite API key and configure
+- [ ] Set up Google Search Console and submit sitemap
+- [ ] Consider migrating DNS management to Netlify
 - [ ] Create draft for YCharts dynamic content integration
 - [ ] Submit compliance review for any dynamic market data
 
@@ -146,4 +148,4 @@
 
 ---
 
-*Last updated: 2026-01-20*
+*Last updated: 2026-01-25*
