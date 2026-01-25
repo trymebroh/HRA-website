@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
   initClickableAddress();
   initFormLoadingStates();
   initExitIntentPopup();
+  initBookingUrgencyMonth();
 });
 
 // ----------------------------------------
@@ -36,6 +37,28 @@ function initReducedMotion() {
     } else {
       document.documentElement.classList.remove('reduce-motion');
     }
+  });
+}
+
+// ----------------------------------------
+// Booking Urgency Month
+// ----------------------------------------
+function initBookingUrgencyMonth() {
+  const monthElements = document.querySelectorAll('.booking-urgency-month');
+
+  if (monthElements.length === 0) return;
+
+  const months = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+
+  const currentMonth = new Date().getMonth();
+  const nextMonth = (currentMonth + 1) % 12;
+  const nextMonthName = months[nextMonth];
+
+  monthElements.forEach(function(el) {
+    el.textContent = nextMonthName;
   });
 }
 
