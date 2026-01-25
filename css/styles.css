@@ -458,10 +458,13 @@ p:last-child {
   z-index: 1000;
   transition: background-color var(--duration-normal) var(--ease-out-cubic),
               box-shadow var(--duration-normal) var(--ease-out-cubic);
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
 }
 
 .navbar--transparent {
   background-color: transparent;
+  box-shadow: none;
 }
 
 .navbar--transparent .nav-link,
@@ -475,7 +478,7 @@ p:last-child {
 
 .navbar.is-scrolled .nav-link,
 .navbar.is-scrolled .logo-text {
-  color: var(--gray-700);
+  color: var(--navy-900);
 }
 
 .navbar.is-scrolled .nav-link:hover {
@@ -520,10 +523,22 @@ p:last-child {
 .nav-link {
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--gray-700);
+  color: var(--navy-900);
   position: relative;
   padding: var(--space-2) 0;
   transition: color var(--duration-normal) var(--ease-out-cubic);
+}
+
+/* Book a Meeting button - Gold to stand out from header */
+.nav-cta {
+  background-color: var(--gold-500) !important;
+  border-color: var(--gold-500) !important;
+  color: var(--navy-900) !important;
+}
+
+.nav-cta:hover {
+  background-color: var(--gold-400) !important;
+  border-color: var(--gold-400) !important;
 }
 
 .nav-link::after {
@@ -548,7 +563,7 @@ p:last-child {
   gap: var(--space-2);
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--gray-700);
+  color: var(--navy-900);
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-md);
   transition: all var(--duration-fast) ease;
@@ -573,7 +588,7 @@ p:last-child {
 }
 
 .navbar.is-scrolled .nav-phone {
-  color: var(--gray-700);
+  color: var(--navy-900);
 }
 
 .navbar.is-scrolled .nav-phone:hover {
@@ -595,7 +610,7 @@ p:last-child {
   border: none;
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--gray-700);
+  color: var(--navy-900);
   padding: var(--space-2) 0;
   transition: color var(--duration-normal) var(--ease-out-cubic);
 }
@@ -605,7 +620,7 @@ p:last-child {
 }
 
 .navbar.is-scrolled .nav-dropdown-toggle {
-  color: var(--gray-700);
+  color: var(--navy-900);
 }
 
 .nav-dropdown-toggle:hover {
