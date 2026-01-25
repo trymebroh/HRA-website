@@ -15,6 +15,12 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wealth Management Services | High Ridge Advisory">
+  <meta name="twitter:description" content="Comprehensive wealth management services for families and businesses including retirement planning, investment strategy, and tax planning.">
+  <meta name="twitter:image" content="https://highridgeadvisory.com/images/og-image.jpg">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://highridgeadvisory.com/services.html">
@@ -84,6 +90,52 @@
     }
   }
   </script>
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://highridgeadvisory.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://highridgeadvisory.com/services.html"}
+    ]
+  }
+  </script>
+
+  <!-- FAQ Schema for Services -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is comprehensive wealth planning?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Comprehensive wealth planning involves coordinating all parts of your financial life—retirement, investments, taxes, estate planning, insurance, and legacy goals—to work together toward what matters most to you. At High Ridge Advisory, we create customized wealth plans that simplify the complex and evolve with you over time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Fusion Analysis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fusion Analysis is High Ridge Advisory's proprietary investment methodology that combines three approaches: fundamental research (analyzing financial statements and economic indicators), technical research (pattern recognition and trend analysis), and behavioral science (understanding market psychology). This approach helps optimize portfolio performance while managing risk."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What retirement planning services do you offer for business owners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For business owners, we offer corporate retirement plan design, solo owner retirement plans, cash balance pension plans, deferred compensation plans, and executive benefit planning. These solutions help minimize taxes, retain key employees, and build long-term value while planning for your personal financial future."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Skip Link -->
@@ -93,7 +145,7 @@
   <header class="navbar navbar--transparent" id="navbar">
     <div class="nav-container">
       <a href="/" class="nav-logo">
-        <img src="images/logo.webp"  alt="High Ridge Advisory Logo" >
+        <img src="images/logo.webp" alt="High Ridge Advisory Logo" width="100" height="100">
       </a>
 
       <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
@@ -105,7 +157,7 @@
         <div class="nav-dropdown" id="client-portal">
           <button class="nav-dropdown-toggle" aria-expanded="false" aria-controls="portal-menu">
             Client Portal
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="nav-dropdown-menu" id="portal-menu">
             <a href="https://login.orionadvisor.com/" class="nav-dropdown-item" target="_blank" rel="noopener noreferrer">View Investments</a>
@@ -131,10 +183,10 @@
 
   <main id="main-content">
     <!-- Hero Section -->
-    <section class="hero hero--compact hero--right" style="background-image: url('images/services-hero.avif');">
+    <section class="hero hero--compact hero--services" style="background-image: url('images/services-hero.webp');">
       <div class="hero-content">
         <h1>Wealth Management<br>Tailored to You</h1>
-        <p class="hero-subtitle">We help clients balance<br>current and future financial<br>needs, seeing wealth as a tool<br>for <em class="text-gold">purposeful living</em>.</p>
+        <p class="hero-subtitle">We guide families in balancing <br>today's needs with tomorrow's legacy, <br>viewing wealth as a trust to be managed <br>with care in service of <em class="text-gold">what matters most</em>.</p>
       </div>
     </section>
 
@@ -156,7 +208,7 @@
           </div>
           <span class="overline">For Individuals & Families</span>
           <h2>Family Wealth Solutions</h2>
-          <p class="text-large">Comprehensive planning for individuals and families at every stage of life. We address all aspects of your financial picture to create strategies that evolve with you.</p>
+          <p class="text-large">Bespoke wealth strategies for distinguished families navigating significant assets and multigenerational considerations. Our comprehensive approach addresses investment oversight, tax efficiency, estate architecture, and succession planning with the sophistication your wealth demands.</p>
           <a href="https://highridgeadvisory.as.me/" class="btn btn-primary mt-4" target="_blank" rel="noopener noreferrer">Schedule a Family Wealth Consultation</a>
         </div>
       </div>
@@ -389,7 +441,7 @@
         </div>
 
         <div class="text-center mb-8" data-animate="fade-in">
-          <img src="images/risk-spectrum.webp" alt="Asset allocation chart showing risk levels from conservative to aggressive" style="max-width: 100%; border-radius: 8px; box-shadow: var(--shadow-lg); display: block; margin: 0 auto;">
+          <img src="images/risk-spectrum.webp" alt="Asset allocation chart showing risk levels from conservative to aggressive" width="800" height="400" loading="lazy" style="max-width: 100%; border-radius: 8px; box-shadow: var(--shadow-lg); display: block; margin: 0 auto;">
         </div>
 
         <div class="text-center" data-animate="fade-in-up">
@@ -420,7 +472,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="images/logo.webp"  alt="High Ridge Advisory" >
+            <img src="images/logo.webp" alt="High Ridge Advisory" width="100" height="100">
           </div>
           <p>Boutique wealth management Providing fiduciary financial guidance to families and businesses since 1997.</p>
           <a href="https://highridgeadvisory.as.me/" class="btn btn-ghost btn-small" target="_blank" rel="noopener noreferrer">Book a Consultation</a>

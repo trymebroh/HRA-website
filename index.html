@@ -15,6 +15,12 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="High Ridge Advisory | Trusted Wealth Management">
+  <meta name="twitter:description" content="Fiduciary wealth management for families and businesses. Over 25 years of experience serving clients in McKinney, Texas.">
+  <meta name="twitter:image" content="https://highridgeadvisory.com/images/og-image.jpg">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://highridgeadvisory.com/">
@@ -63,7 +69,50 @@
       "name": "James Madden"
     },
     "foundingDate": "1997",
-    "areaServed": "United States"
+    "areaServed": "United States",
+    "knowsAbout": ["wealth management", "financial planning", "investment strategy", "retirement planning", "estate planning"]
+  }
+  </script>
+
+  <!-- FAQ Schema for AIO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is fiduciary wealth management?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fiduciary wealth management means your advisor is legally bound to act in your best interest at all times. Unlike commission-based advisors, fiduciaries cannot recommend products that benefit them over you. At High Ridge Advisory, we operate under the fiduciary standard, ensuring every recommendation is designed to help you achieve your financial goals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What services does High Ridge Advisory offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "High Ridge Advisory offers comprehensive wealth management services including retirement planning, investment strategy, estate planning, tax planning, business succession planning, cash balance pension plans, and executive benefits. We serve both families and business owners with tailored solutions for every stage of life."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is High Ridge Advisory different from other financial advisors?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "High Ridge Advisory is an independent, fee-only fiduciary firm with over 25 years of experience. We have no ties to investment firms or product quotas—we answer only to you. Your assets are held securely with Fidelity and Schwab, and we provide sophisticated investment solutions through the Csenge Advisory Network."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is High Ridge Advisory located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "High Ridge Advisory is located at 208 E. Louisiana Street, Suite 301, McKinney, Texas 75069. We serve clients throughout the United States with personalized wealth management services."
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -91,7 +140,7 @@
         <div class="nav-dropdown" id="client-portal">
           <button class="nav-dropdown-toggle" aria-expanded="false" aria-controls="portal-menu">
             Client Portal
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="nav-dropdown-menu" id="portal-menu">
             <a href="https://login.orionadvisor.com/" class="nav-dropdown-item" target="_blank" rel="noopener noreferrer">View Investments</a>
@@ -126,7 +175,7 @@
         </div>
       </div>
       <a href="#intro" class="scroll-indicator" aria-label="Scroll to content">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
       </a>
     </section>
 
@@ -139,13 +188,13 @@
             <h2>We're Here to Simplify Your Financial Life</h2>
             <p class="text-large">At High Ridge, we believe building and managing wealth shouldn't be difficult. We aim to remove the confusion, deliver high-quality advice, and increase your knowledge and comfort with how your money is being invested—one step at a time.</p>
             <div class="intro-image-mobile">
-              <img src="images/about-steps.jpg" alt="Person walking up steps">
+              <img src="images/about-steps.jpg" alt="Person walking up steps symbolizing financial progress" width="600" height="400" loading="lazy">
             </div>
             <p>All decisions we make will be in your best interests.</p>
             <a href="about.html" class="btn btn-primary">Learn About Our Approach</a>
           </div>
           <div class="image-reveal intro-image-desktop" data-animate="fade-in" style="display: flex; justify-content: flex-end;">
-            <img src="images/about-steps.jpg" alt="Person walking up steps" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px;">
+            <img src="images/about-steps.jpg" alt="Person walking up steps symbolizing financial progress" width="600" height="400" loading="lazy" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px;">
           </div>
         </div>
       </div>
@@ -163,7 +212,7 @@
           <!-- Family Wealth Card -->
           <div class="card card-service">
             <h4>Family Wealth Solutions</h4>
-            <p>Comprehensive planning for individuals and families at every stage of life.</p>
+            <p>Bespoke wealth strategies for distinguished families navigating significant assets and multigenerational considerations.</p>
             <ul>
               <li>Retirement Planning</li>
               <li>Investment Strategy</li>

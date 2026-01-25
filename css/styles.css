@@ -1142,6 +1142,123 @@ p:last-child {
   }
 }
 
+/* Services Hero - lighter overlay, left-positioned */
+.hero--services {
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.hero--services::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 39, 68, 0.35) 0%,
+    rgba(15, 39, 68, 0.45) 50%,
+    rgba(15, 39, 68, 0.55) 100%
+  );
+}
+
+.hero--services .hero-content {
+  max-width: 600px;
+  margin-left: var(--space-8);
+  margin-right: auto;
+}
+
+.hero--services h1 {
+  text-align: left;
+}
+
+.hero--services .hero-subtitle {
+  text-align: left;
+  margin-top: 6rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero--services .hero-subtitle .text-gold {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+  .hero--services {
+    background-position: 60% center;
+  }
+
+  .hero--services h1 {
+    text-align: center;
+  }
+
+  .hero--services .hero-subtitle br {
+    display: none;
+  }
+
+  .hero--services .hero-subtitle {
+    margin-top: var(--space-8);
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero--services .hero-content {
+    margin-left: var(--space-20);
+    margin-bottom: var(--space-24);
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero--services .hero-content {
+    margin-left: var(--space-24);
+  }
+}
+
+/* About Hero - left-positioned */
+.hero--about-left {
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.hero--about-left .hero-content {
+  max-width: 600px;
+  margin-left: var(--space-8);
+  margin-right: auto;
+}
+
+.hero--about-left h1 {
+  text-align: left;
+}
+
+.hero--about-left .hero-subtitle {
+  text-align: left;
+  margin-top: var(--space-16);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .hero--about-left h1 {
+    text-align: center;
+  }
+
+  .hero--about-left .hero-subtitle br {
+    display: none;
+  }
+
+  .hero--about-left .hero-subtitle {
+    margin-top: var(--space-8);
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero--about-left .hero-content {
+    margin-left: var(--space-20);
+    margin-bottom: var(--space-24);
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero--about-left .hero-content {
+    margin-left: var(--space-24);
+  }
+}
+
 /* Text Gold Color */
 .text-gold {
   color: var(--gold-500);

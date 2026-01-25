@@ -15,6 +15,12 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact Us | High Ridge Advisory">
+  <meta name="twitter:description" content="Get in touch with High Ridge Advisory. Schedule a consultation or send us a message.">
+  <meta name="twitter:image" content="https://highridgeadvisory.com/images/og-image.jpg">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://highridgeadvisory.com/contact.html">
@@ -70,6 +76,44 @@
     }
   }
   </script>
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://highridgeadvisory.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Contact", "item": "https://highridgeadvisory.com/contact.html"}
+    ]
+  }
+  </script>
+
+  <!-- FAQ Schema for Contact -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I schedule a consultation with High Ridge Advisory?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can schedule a complimentary consultation by using our online scheduler at highridgeadvisory.as.me, calling us at 972.632.5700, or sending a message through our contact form. We offer both in-person meetings at our McKinney office and virtual consultations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I expect during an initial consultation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "During your initial consultation, we'll discuss your financial goals, current situation, and concerns. This is a confidential, no-obligation conversation to explore how we can serve your family's wealth management needs and determine if we're the right fit for each other."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Skip Link -->
@@ -79,7 +123,7 @@
   <header class="navbar navbar--transparent" id="navbar">
     <div class="nav-container">
       <a href="/" class="nav-logo">
-        <img src="images/logo.webp"  alt="High Ridge Advisory Logo" >
+        <img src="images/logo.webp" alt="High Ridge Advisory Logo" width="100" height="100">
       </a>
 
       <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
@@ -91,7 +135,7 @@
         <div class="nav-dropdown" id="client-portal">
           <button class="nav-dropdown-toggle" aria-expanded="false" aria-controls="portal-menu">
             Client Portal
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
           <div class="nav-dropdown-menu" id="portal-menu">
             <a href="https://login.orionadvisor.com/" class="nav-dropdown-item" target="_blank" rel="noopener noreferrer">View Investments</a>
@@ -119,11 +163,11 @@
     <!-- Hero Section -->
     <section class="hero hero--compact" style="background-image: url('images/contact-hero.jpg'); background-position: top center; min-height: 75vh;">
       <div class="hero-content" style="text-align: right; position: absolute; right: var(--section-padding-x);">
-        <h1 style="margin-left: auto;">Let's Connect</h1>
-        <p class="hero-subtitle" style="margin-left: auto;">We'd love to hear from you.<br>Reach out to schedule a conversation<br>about your financial goals.</p>
+        <h1 style="margin-left: auto;">Begin the Conversation</h1>
+        <p class="hero-subtitle" style="margin-left: auto; max-width: 500px; text-align: justify;">We welcome the opportunity to explore how we can serve your family's wealth management needs. Contact us to arrange a confidential discussion about your financial objectives and legacy aspirations.</p>
       </div>
       <a href="#contact-form" class="scroll-indicator" aria-label="Scroll to contact form">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
       </a>
     </section>
 
@@ -254,7 +298,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="images/logo.webp"  alt="High Ridge Advisory" >
+            <img src="images/logo.webp" alt="High Ridge Advisory" width="100" height="100">
           </div>
           <p>Boutique wealth management Providing fiduciary financial guidance to families and businesses since 1997.</p>
           <a href="https://highridgeadvisory.as.me/" class="btn btn-ghost btn-small" target="_blank" rel="noopener noreferrer">Book a Consultation</a>
